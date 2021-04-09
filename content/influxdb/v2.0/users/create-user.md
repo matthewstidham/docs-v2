@@ -40,15 +40,18 @@ influx user create -n johndoe -o example-org
 To create a new user with a password and add the user as a member of an organization,
 include a password and organization ID with the `influx user create` command.
 
+If you want to enable GUI access for the user you must include a valid token. 
+
 - Username
 - Organization name or organization ID to add the user to _(provided in the output of
   [`influx org list`](/influxdb/v2.0/reference/cli/influx/org/list/))_
 - Password
+- Token (required in order to enable GUI access, otherwise optional)
 
 ```sh
 # Syntax
-influx user create -n <username> -p <password> -o <org-name>
+influx user create -n <username> -p <password> -o <org-name> -t <token>
 
 # Example
-influx user create -n johndoe -p PaSsWoRd -o example-org
+influx user create -n johndoe -p PaSsWoRd -o example-org -t <token>
 ```
